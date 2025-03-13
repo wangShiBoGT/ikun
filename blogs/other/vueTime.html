@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>前端性能优化实践：Vue3 + Vite + Ant Design Vue项目加载性能提升50% | 坦途的博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/favicon.ico">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8898b78d4744983d0771303845947fa6";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+        </script>
+    <meta name="description" content="坦途,是一个关注于互联网、IT技术经验分享的个人独立博客。专注于IT行业最前沿的技术。致力成为互联网上最个性、最极客、具传播力的个人独立博客。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.ae5b0369.css" as="style"><link rel="preload" href="/assets/js/app.4a1bd1d5.js" as="script"><link rel="preload" href="/assets/js/3.446bfd57.js" as="script"><link rel="preload" href="/assets/js/2.c5b4d909.js" as="script"><link rel="preload" href="/assets/js/1.43e5130d.js" as="script"><link rel="preload" href="/assets/js/58.82360c88.js" as="script"><link rel="prefetch" href="/assets/js/10.0a98ae81.js"><link rel="prefetch" href="/assets/js/11.3b38ce69.js"><link rel="prefetch" href="/assets/js/12.5305c3b1.js"><link rel="prefetch" href="/assets/js/15.52f34a3a.js"><link rel="prefetch" href="/assets/js/16.5d3a68e6.js"><link rel="prefetch" href="/assets/js/17.4a2edb70.js"><link rel="prefetch" href="/assets/js/18.dd5694a4.js"><link rel="prefetch" href="/assets/js/19.6ba0eabe.js"><link rel="prefetch" href="/assets/js/20.52d1f2b0.js"><link rel="prefetch" href="/assets/js/21.9b9b6eb8.js"><link rel="prefetch" href="/assets/js/22.d97bbfdc.js"><link rel="prefetch" href="/assets/js/23.8c6ad209.js"><link rel="prefetch" href="/assets/js/24.73c63493.js"><link rel="prefetch" href="/assets/js/25.63b2db3c.js"><link rel="prefetch" href="/assets/js/26.5ea874ee.js"><link rel="prefetch" href="/assets/js/27.3bf6e6c2.js"><link rel="prefetch" href="/assets/js/28.62cfca15.js"><link rel="prefetch" href="/assets/js/29.02219068.js"><link rel="prefetch" href="/assets/js/30.c7b76a6f.js"><link rel="prefetch" href="/assets/js/31.f6bef83d.js"><link rel="prefetch" href="/assets/js/32.138318d5.js"><link rel="prefetch" href="/assets/js/33.12765211.js"><link rel="prefetch" href="/assets/js/34.1203e7a7.js"><link rel="prefetch" href="/assets/js/35.7c800e54.js"><link rel="prefetch" href="/assets/js/36.35013d39.js"><link rel="prefetch" href="/assets/js/37.bc92d0fd.js"><link rel="prefetch" href="/assets/js/38.5994af21.js"><link rel="prefetch" href="/assets/js/39.35c7bb65.js"><link rel="prefetch" href="/assets/js/4.6aa79d39.js"><link rel="prefetch" href="/assets/js/40.d57a93fc.js"><link rel="prefetch" href="/assets/js/41.aeab550b.js"><link rel="prefetch" href="/assets/js/42.54286307.js"><link rel="prefetch" href="/assets/js/43.4311151a.js"><link rel="prefetch" href="/assets/js/44.ed7e992c.js"><link rel="prefetch" href="/assets/js/45.d965531a.js"><link rel="prefetch" href="/assets/js/46.49e3069f.js"><link rel="prefetch" href="/assets/js/47.cdbc852b.js"><link rel="prefetch" href="/assets/js/48.921b222b.js"><link rel="prefetch" href="/assets/js/49.63eda39f.js"><link rel="prefetch" href="/assets/js/5.6827de94.js"><link rel="prefetch" href="/assets/js/50.e9dc3b19.js"><link rel="prefetch" href="/assets/js/51.525d5fb8.js"><link rel="prefetch" href="/assets/js/52.a0be9e03.js"><link rel="prefetch" href="/assets/js/53.3ec3c836.js"><link rel="prefetch" href="/assets/js/54.3e5f2c74.js"><link rel="prefetch" href="/assets/js/55.adfd425f.js"><link rel="prefetch" href="/assets/js/56.4a159f3f.js"><link rel="prefetch" href="/assets/js/57.8e57558a.js"><link rel="prefetch" href="/assets/js/59.fa614a09.js"><link rel="prefetch" href="/assets/js/6.1943e564.js"><link rel="prefetch" href="/assets/js/60.13e7fe01.js"><link rel="prefetch" href="/assets/js/61.25541078.js"><link rel="prefetch" href="/assets/js/62.9b1ae98d.js"><link rel="prefetch" href="/assets/js/63.d2effc67.js"><link rel="prefetch" href="/assets/js/64.14c9f15a.js"><link rel="prefetch" href="/assets/js/65.1c3e3fca.js"><link rel="prefetch" href="/assets/js/7.28897ce7.js"><link rel="prefetch" href="/assets/js/8.c63de8af.js"><link rel="prefetch" href="/assets/js/9.0f4dfe22.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.4d48241b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ae5b0369.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-4b7b8974><div data-v-4b7b8974><div id="loader-wrapper" class="loading-wrapper" data-v-57c58703 data-v-4b7b8974 data-v-4b7b8974><div class="loader-main" data-v-57c58703><div data-v-57c58703></div><div data-v-57c58703></div><div data-v-57c58703></div><div data-v-57c58703></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-5cb9a64e data-v-4b7b8974 data-v-4b7b8974><h3 class="title" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e>坦途的博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e><input type="password" value="" data-v-5cb9a64e> <span data-v-5cb9a64e>Konck! Knock!</span> <button data-v-5cb9a64e>OK</button></label> <div class="footer" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e><span data-v-5cb9a64e><i class="iconfont reco-theme" data-v-5cb9a64e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-5cb9a64e>vuePress-theme-reco</a></span> <span data-v-5cb9a64e><i class="iconfont reco-copyright" data-v-5cb9a64e></i> <a data-v-5cb9a64e><span data-v-5cb9a64e>坦途</span>
+            
+          <span data-v-5cb9a64e>2020 - </span>
+          2025
+        </a></span></div></div> <div class="hide" data-v-4b7b8974><div data-v-4b7b8974><div id="smart" class="wrapper-page" style="background-image:url(https://img.picgo.net/2025/03/13/b21519bcf5bb1cce7ee7a4c82556ce3a364b2f1ced046c0.jpg);background-position-x:center;background-position-y:center;background-size:cover;background-repeat-x:no-repeat;background-repeat-y:no-repeat;" data-v-4b7b8974><header class="navbar" data-v-4b7b8974><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/favicon.ico" alt="坦途的博客" class="logo"> <span class="site-name">坦途的博客</span></a> <div class="links"><div id="dayNightSwitch" class="generalWrapper" data-v-32f44868><a class="click" data-v-32f44868><div class="onOff daySwitch" data-v-32f44868><div class="star star1" data-v-32f44868></div> <div class="star star2" data-v-32f44868></div> <div class="star star3" data-v-32f44868></div> <div class="star star4" data-v-32f44868></div> <div class="star star5" data-v-32f44868></div> <div class="star sky" data-v-32f44868></div> <div class="sunMoon" data-v-32f44868><div class="crater crater1" data-v-32f44868></div> <div class="crater crater2" data-v-32f44868></div> <div class="crater crater3" data-v-32f44868></div> <div class="cloud part1" data-v-32f44868></div> <div class="cloud part2" data-v-32f44868></div></div></div></a></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/开发实践/" class="nav-link"><i class="iconfont undefined"></i>
+  开发实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  技术笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术实践/" class="nav-link"><i class="iconfont undefined"></i>
+  技术实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端优化/" class="nav-link"><i class="iconfont undefined"></i>
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/categories/鉴权/" class="nav-link"><i class="iconfont undefined"></i>
+  鉴权
+</a></li><li class="dropdown-item"><!----> <a href="/categories/心情物语/" class="nav-link"><i class="iconfont undefined"></i>
+  心情物语
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂谈游记/" class="nav-link"><i class="iconfont undefined"></i>
+  杂谈游记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-4b7b8974></div> <aside class="sidebar" data-v-4b7b8974><div class="personal-info-wrapper" data-v-03833281 data-v-4b7b8974><img src="https://p3-passport.byteimg.com/img/user-avatar/27381676718b5db3678b2dcb597ff883~180x180.awebp" alt="author-avatar" class="personal-img" data-v-03833281> <h3 class="name" data-v-03833281>
+    坦途
+  </h3> <div class="num" data-v-03833281><div data-v-03833281><h3 data-v-03833281>22</h3> <h6 data-v-03833281>文章</h6></div> <div data-v-03833281><h3 data-v-03833281>33</h3> <h6 data-v-03833281>标签</h6></div></div> <hr data-v-03833281></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/开发实践/" class="nav-link"><i class="iconfont undefined"></i>
+  开发实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  技术笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术实践/" class="nav-link"><i class="iconfont undefined"></i>
+  技术实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端优化/" class="nav-link"><i class="iconfont undefined"></i>
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/categories/鉴权/" class="nav-link"><i class="iconfont undefined"></i>
+  鉴权
+</a></li><li class="dropdown-item"><!----> <a href="/categories/心情物语/" class="nav-link"><i class="iconfont undefined"></i>
+  心情物语
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂谈游记/" class="nav-link"><i class="iconfont undefined"></i>
+  杂谈游记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-5cb9a64e data-v-4b7b8974><h3 class="title" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e>前端性能优化实践：Vue3 + Vite + Ant Design Vue项目加载性能提升50%</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e><input type="password" value="" data-v-5cb9a64e> <span data-v-5cb9a64e>Konck! Knock!</span> <button data-v-5cb9a64e>OK</button></label> <div class="footer" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e><span data-v-5cb9a64e><i class="iconfont reco-theme" data-v-5cb9a64e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-5cb9a64e>vuePress-theme-reco</a></span> <span data-v-5cb9a64e><i class="iconfont reco-copyright" data-v-5cb9a64e></i> <a data-v-5cb9a64e><span data-v-5cb9a64e>坦途</span>
+            
+          <span data-v-5cb9a64e>2020 - </span>
+          2025
+        </a></span></div></div></div> <div data-v-4b7b8974><main class="page" style="padding-right:0;"><div class="page-title" style="display:none;"><h1 class="title">前端性能优化实践：Vue3 + Vite + Ant Design Vue项目加载性能提升50%</h1> <div class="page-info" data-v-0efa1f05><i class="iconfont reco-account" data-v-0efa1f05><span data-v-0efa1f05>坦途</span></i> <i class="iconfont reco-date" data-v-0efa1f05><span data-v-0efa1f05>2024-12-28</span></i> <i class="iconfont reco-eye" data-v-0efa1f05><span id="/blogs/other/vueTime.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-0efa1f05><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-0efa1f05><span class="tag-item" data-v-0efa1f05>vue</span><span class="tag-item" data-v-0efa1f05>性能优化</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="背景介绍"><a href="#背景介绍" class="header-anchor">#</a> 背景介绍</h2> <p>在我们的AI安全平台项目中，我们使用了Vue3 + Vite + Ant Design Vue技术栈构建前端应用。随着功能不断增加，页面变得越来越复杂，特别是数据可视化和交互复杂的核心页面，加载速度逐渐变慢，用户体验受到了影响。作为项目的前端开发者，我负责优化前端性能，最终将核心页面的加载时间减少了约50%。</p> <h2 id="性能问题分析"><a href="#性能问题分析" class="header-anchor">#</a> 性能问题分析</h2> <p>首先，我使用了几个常用工具来分析性能问题：</p> <ol><li><strong>Chrome DevTools</strong> - 网络、性能面板分析</li> <li><strong>Lighthouse</strong> - 综合性能评分</li> <li><strong>Vite Bundle Analyzer</strong> - 分析打包后的文件大小</li></ol> <p>通过分析，我发现了以下几个主要问题：</p> <ul><li>首屏加载了大量非必要的JavaScript和CSS资源</li> <li>Ant Design Vue组件库引入过多未使用的组件</li> <li>图片和静态资源未经优化</li> <li>数据可视化图表渲染性能差</li> <li>路由跳转阻塞</li></ul> <h2 id="优化措施实施"><a href="#优化措施实施" class="header-anchor">#</a> 优化措施实施</h2> <h3 id="_1-vite构建优化"><a href="#_1-vite构建优化" class="header-anchor">#</a> 1. Vite构建优化</h3> <p>首先，我们利用Vite的构建优化特性来提高打包效率：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// vite.config.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineConfig <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vite'</span>
+<span class="token keyword">import</span> vue <span class="token keyword">from</span> <span class="token string">'@vitejs/plugin-vue'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> visualizer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rollup-plugin-visualizer'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">vue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">visualizer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">open</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">gzipSize</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">brotliSize</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">build</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">minify</span><span class="token operator">:</span> <span class="token string">'terser'</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">terserOptions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">compress</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">drop_console</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">drop_debugger</span><span class="token operator">:</span> <span class="token boolean">true</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">rollupOptions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">output</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">manualChunks</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token string-property property">'vendor'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'vue'</span><span class="token punctuation">,</span> <span class="token string">'vue-router'</span><span class="token punctuation">,</span> <span class="token string">'pinia'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string-property property">'antd'</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'ant-design-vue'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这样配置后，我们可以看到各个模块的大小，并且实现了更合理的代码分割。</p> <h3 id="_2-ant-design-vue按需引入"><a href="#_2-ant-design-vue按需引入" class="header-anchor">#</a> 2. Ant Design Vue按需引入</h3> <p>优化Ant Design Vue的引入方式，不再全量引入：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 优化前</span>
+<span class="token keyword">import</span> Antd <span class="token keyword">from</span> <span class="token string">'ant-design-vue'</span>
+<span class="token keyword">import</span> <span class="token string">'ant-design-vue/dist/antd.css'</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Antd<span class="token punctuation">)</span>
+
+<span class="token comment">// 优化后</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Button<span class="token punctuation">,</span> Table<span class="token punctuation">,</span> Form<span class="token punctuation">,</span> Input <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ant-design-vue'</span>
+<span class="token keyword">import</span> <span class="token string">'ant-design-vue/es/button/style/css'</span>
+<span class="token keyword">import</span> <span class="token string">'ant-design-vue/es/table/style/css'</span>
+<span class="token keyword">import</span> <span class="token string">'ant-design-vue/es/form/style/css'</span>
+<span class="token keyword">import</span> <span class="token string">'ant-design-vue/es/input/style/css'</span>
+
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Button<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Table<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Form<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Input<span class="token punctuation">)</span>
+</code></pre></div><p>更进一步，我们可以使用自动导入插件：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// vite.config.js</span>
+<span class="token keyword">import</span> Components <span class="token keyword">from</span> <span class="token string">'unplugin-vue-components/vite'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AntDesignVueResolver <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'unplugin-vue-components/resolvers'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// ...其他插件</span>
+    <span class="token function">Components</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">resolvers</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">AntDesignVueResolver</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          <span class="token literal-property property">importStyle</span><span class="token operator">:</span> <span class="token string">'less'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">resolveIcons</span><span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>这样就能自动导入用到的组件而不是全量导入。</p> <h3 id="_3-路由懒加载"><a href="#_3-路由懒加载" class="header-anchor">#</a> 3. 路由懒加载</h3> <p>使用Vue Router的懒加载特性，分割路由页面：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// router/index.js</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createRouter<span class="token punctuation">,</span> createWebHistory <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue-router'</span>
+
+<span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views/Home.vue'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/dashboard'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views/Dashboard.vue'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/threats'</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'../views/Threats.vue'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">createRouter</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">history</span><span class="token operator">:</span> <span class="token function">createWebHistory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  routes
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> router
+</code></pre></div><h3 id="_4-静态资源优化"><a href="#_4-静态资源优化" class="header-anchor">#</a> 4. 静态资源优化</h3> <p>对静态资源进行优化，特别是图片：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// vite.config.js</span>
+<span class="token keyword">import</span> viteImagemin <span class="token keyword">from</span> <span class="token string">'vite-plugin-imagemin'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token comment">// ...其他插件</span>
+    <span class="token function">viteImagemin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">gifsicle</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">optimizationLevel</span><span class="token operator">:</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token literal-property property">interlaced</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">optipng</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">optimizationLevel</span><span class="token operator">:</span> <span class="token number">7</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">mozjpeg</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">quality</span><span class="token operator">:</span> <span class="token number">80</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">pngquant</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">quality</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">0.8</span><span class="token punctuation">,</span> <span class="token number">0.9</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token literal-property property">speed</span><span class="token operator">:</span> <span class="token number">4</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">svgo</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'removeViewBox'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'removeEmptyAttrs'</span><span class="token punctuation">,</span> <span class="token literal-property property">active</span><span class="token operator">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>同时，使用现代图片格式和懒加载：</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">v-lazy</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>imageUrl<span class="token punctuation">&quot;</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Description<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> VueLazyload <span class="token keyword">from</span> <span class="token string">'vue-lazyload'</span>
+
+<span class="token keyword">const</span> imageUrl <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'/assets/large-image.webp'</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_5-虚拟滚动优化长列表"><a href="#_5-虚拟滚动优化长列表" class="header-anchor">#</a> 5. 虚拟滚动优化长列表</h3> <p>对于数据量大的表格，使用虚拟滚动：</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>table-container<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-table</span>
+      <span class="token attr-name">:columns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>columns<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">:data-source</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dataSource<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">:scroll</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{ y: 500 }<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">:pagination</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>false<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">:virtual</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+      <span class="token attr-name">:row-key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>record =&gt; record.id<span class="token punctuation">&quot;</span></span>
+    <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+
+<span class="token keyword">const</span> columns <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'名称'</span><span class="token punctuation">,</span> <span class="token literal-property property">dataIndex</span><span class="token operator">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'name'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token string">'风险等级'</span><span class="token punctuation">,</span> <span class="token literal-property property">dataIndex</span><span class="token operator">:</span> <span class="token string">'riskLevel'</span><span class="token punctuation">,</span> <span class="token literal-property property">key</span><span class="token operator">:</span> <span class="token string">'riskLevel'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// 其他列...</span>
+<span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> dataSource <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 大量数据</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_6-数据可视化优化"><a href="#_6-数据可视化优化" class="header-anchor">#</a> 6. 数据可视化优化</h3> <p>对于数据可视化图表，我们采用了以下优化方法：</p> <ul><li>按需加载图表组件</li> <li>减少不必要的重绘</li> <li>使用节流函数处理频繁更新</li></ul> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>chartContainer<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>chart-container<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> onMounted<span class="token punctuation">,</span> onUnmounted <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useThrottleFn <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@vueuse/core'</span>
+
+<span class="token comment">// 延迟加载图表库</span>
+<span class="token keyword">const</span> chartLib <span class="token operator">=</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'echarts'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> chartContainer <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> chart <span class="token operator">=</span> <span class="token keyword">null</span>
+
+<span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> echarts <span class="token operator">=</span> <span class="token keyword">await</span> chartLib
+  chart <span class="token operator">=</span> echarts<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span>chartContainer<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+  
+  <span class="token comment">// 使用节流函数处理resize</span>
+  <span class="token keyword">const</span> handleResize <span class="token operator">=</span> <span class="token function">useThrottleFn</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    chart<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span>
+  
+  window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> handleResize<span class="token punctuation">)</span>
+  
+  <span class="token comment">// 首次渲染</span>
+  <span class="token function">renderChart</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token function">onUnmounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>chart<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    chart<span class="token punctuation">.</span><span class="token function">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    window<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> handleResize<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">renderChart</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 根据数据渲染图表</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_7-代码分割和动态导入"><a href="#_7-代码分割和动态导入" class="header-anchor">#</a> 7. 代码分割和动态导入</h3> <p>利用Vite的动态导入特性，将复杂功能模块异步加载：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 优化前</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> heavyModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./heavyModule'</span>
+
+<span class="token comment">// 优化后</span>
+<span class="token keyword">const</span> <span class="token function-variable function">useHeavyFeature</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> heavyModule <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./heavyModule'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> <span class="token function">heavyModule</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 只有在用户触发时才加载</span>
+<span class="token keyword">const</span> <span class="token function-variable function">handleClick</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">useHeavyFeature</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment">// 使用结果...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_8-使用keep-alive缓存组件"><a href="#_8-使用keep-alive缓存组件" class="header-anchor">#</a> 8. 使用Keep-Alive缓存组件</h3> <p>对于频繁切换但内容不常变的页面，使用<code>keep-alive</code>缓存组件状态：</p> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span> <span class="token attr-name">v-slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>{ Component }<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span> <span class="token attr-name">:include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>['Dashboard', 'UserProfile']<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Component<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_9-使用web-worker处理复杂计算"><a href="#_9-使用web-worker处理复杂计算" class="header-anchor">#</a> 9. 使用Web Worker处理复杂计算</h3> <p>对于复杂数据处理和计算，使用Web Worker避免阻塞主线程：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// worker.js</span>
+self<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> data <span class="token operator">=</span> e<span class="token punctuation">.</span>data
+  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">processComplexData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+  self<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">processComplexData</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 复杂计算...</span>
+  <span class="token keyword">return</span> processedData
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">setup</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> onMounted<span class="token punctuation">,</span> onUnmounted <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> worker <span class="token operator">=</span> <span class="token keyword">null</span>
+
+<span class="token function">onMounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  worker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">URL</span><span class="token punctuation">(</span><span class="token string">'./worker.js'</span><span class="token punctuation">,</span> <span class="token keyword">import</span><span class="token punctuation">.</span>meta<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  
+  worker<span class="token punctuation">.</span><span class="token function-variable function">onmessage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    result<span class="token punctuation">.</span>value <span class="token operator">=</span> e<span class="token punctuation">.</span>data
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">processData</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  worker<span class="token punctuation">.</span><span class="token function">postMessage</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">onUnmounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>worker<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    worker<span class="token punctuation">.</span><span class="token function">terminate</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="_10-使用预加载和预取"><a href="#_10-使用预加载和预取" class="header-anchor">#</a> 10. 使用预加载和预取</h3> <p>利用Vite的预加载特性，提前加载可能需要的资源：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 在路由切换前预加载</span>
+<span class="token keyword">const</span> <span class="token function-variable function">prefetchThreatsPage</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./views/Threats.vue'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 在用户hover某个按钮时预加载</span>
+<span class="token keyword">const</span> <span class="token function-variable function">handleMouseEnter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token function">prefetchThreatsPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="效果对比"><a href="#效果对比" class="header-anchor">#</a> 效果对比</h2> <p>通过以上优化措施，我们对性能进行了全面提升：</p> <table><thead><tr><th>优化指标</th> <th>优化前</th> <th>优化后</th> <th>提升比例</th></tr></thead> <tbody><tr><td>首屏加载时间</td> <td>3.1秒</td> <td>1.5秒</td> <td>-52%</td></tr> <tr><td>JS Bundle大小</td> <td>2.2MB</td> <td>980KB</td> <td>-55%</td></tr> <tr><td>首次渲染时间</td> <td>1.8秒</td> <td>0.9秒</td> <td>-50%</td></tr> <tr><td>Lighthouse性能得分</td> <td>65分</td> <td>92分</td> <td>+42%</td></tr></tbody></table> <h2 id="遇到的问题和解决方案"><a href="#遇到的问题和解决方案" class="header-anchor">#</a> 遇到的问题和解决方案</h2> <ol><li><p><strong>Ant Design Vue按需引入后样式丢失</strong></p> <p>解决方案：确保正确引入每个组件的样式，或使用<code>unplugin-vue-components</code>自动导入。</p></li> <li><p><strong>Vite热更新偶尔失效</strong></p> <p>解决方案：升级Vite版本，并确保正确配置热更新选项。</p></li> <li><p><strong>图表组件初始化时闪烁</strong></p> <p>解决方案：使用骨架屏和加载动画，优化用户体验。</p></li></ol> <h2 id="对于实战性能优化的一些具体案例"><a href="#对于实战性能优化的一些具体案例" class="header-anchor">#</a> 对于实战性能优化的一些具体案例</h2> <p>对于&quot;不同项目可能需要不同的优化策略，要根据实际性能瓶颈进行针对性优化&quot;这个问题，我可以给你一些具体场景和例子，帮助你在面试中更有针对性地回答。</p> <h2 id="针对不同项目类型的性能优化策略"><a href="#针对不同项目类型的性能优化策略" class="header-anchor">#</a> 针对不同项目类型的性能优化策略</h2> <h3 id="_1-数据可视化密集型应用"><a href="#_1-数据可视化密集型应用" class="header-anchor">#</a> 1. 数据可视化密集型应用</h3> <p><strong>性能瓶颈</strong>：</p> <ul><li>大量图表渲染导致的CPU占用高</li> <li>频繁数据更新引起的重绘</li></ul> <p><strong>针对性优化</strong>：</p> <ul><li>&quot;在我之前负责的一个数据分析平台项目中，我们发现首页同时渲染10多个图表导致页面卡顿。我们通过实现图表懒加载，只有当图表滚动到可视区域时才进行渲染，将首屏渲染时间从3秒降到了1.2秒。&quot;</li> <li>&quot;我们还对实时数据更新进行了节流处理，不再每次数据变化都重绘图表，而是按500ms的间隔批量更新，减少了90%的不必要重绘。&quot;</li></ul> <h3 id="_2-表单密集型应用"><a href="#_2-表单密集型应用" class="header-anchor">#</a> 2. 表单密集型应用</h3> <p><strong>性能瓶颈</strong>：</p> <ul><li>大量表单校验逻辑阻塞主线程</li> <li>表单组件过多导致初始化缓慢</li></ul> <p><strong>针对性优化</strong>：</p> <ul><li>&quot;在一个企业管理系统项目中，我们有一个包含50多个字段的表单，每次输入都会触发校验导致输入卡顿。我们改为失焦时才进行完整校验，输入时只做简单校验，使表单操作流畅度提升了80%。&quot;</li> <li>&quot;我们还实现了表单分步加载，将大表单拆分成多个步骤，每步只加载必要的字段，大大提升了初始加载速度。&quot;</li></ul> <h3 id="_3-图片-媒体密集型应用"><a href="#_3-图片-媒体密集型应用" class="header-anchor">#</a> 3. 图片/媒体密集型应用</h3> <p><strong>性能瓶颈</strong>：</p> <ul><li>大量图片加载导致的带宽占用</li> <li>媒体资源占用过多内存</li></ul> <p><strong>针对性优化</strong>：</p> <ul><li>&quot;在一个电商平台项目中，商品列表页有大量高清图片，导致页面加载缓慢。我们实现了图片懒加载和渐进式加载，同时根据设备屏幕大小动态加载不同分辨率的图片，减少了60%的流量消耗。&quot;</li> <li>&quot;我们还使用了现代图片格式如WebP，配合图片CDN的自动格式转换功能，在支持的浏览器中进一步减少了30%的图片大小。&quot;</li></ul> <h3 id="_4-单页应用-spa"><a href="#_4-单页应用-spa" class="header-anchor">#</a> 4. 单页应用(SPA)</h3> <p><strong>性能瓶颈</strong>：</p> <ul><li>首屏加载JavaScript包过大</li> <li>路由切换卡顿</li></ul> <p><strong>针对性优化</strong>：</p> <ul><li>&quot;在一个大型后台管理系统中，初始JS包超过3MB，导致首屏加载时间长达5秒。我们通过代码分割将非首屏必要的代码拆分成多个chunk，只加载首屏必要的代码，将首屏加载时间减少到1.8秒。&quot;</li> <li>&quot;我们还使用了路由级别的代码分割和预加载策略，在用户悬停导航菜单时预加载相应的路由组件，使路由切换体验更加流畅。&quot;</li></ul> <h3 id="_5-移动端应用"><a href="#_5-移动端应用" class="header-anchor">#</a> 5. 移动端应用</h3> <p><strong>性能瓶颈</strong>：</p> <ul><li>网络条件不稳定</li> <li>设备性能差异大</li></ul> <p><strong>针对性优化</strong>：</p> <ul><li>&quot;在做一个面向农村地区用户的移动端应用时，我们发现很多用户网络条件差，App经常加载失败。我们实现了核心资源预缓存和离线功能，使应用在弱网或短时断网环境下仍能正常使用核心功能。&quot;</li> <li>&quot;我们还针对性能较差的安卓设备做了专门优化，如减少动画效果、降低图片质量等，使应用在低端设备上也能保持流畅。&quot;</li></ul> <h3 id="_6-国际化应用"><a href="#_6-国际化应用" class="header-anchor">#</a> 6. 国际化应用</h3> <p><strong>性能瓶颈</strong>：</p> <ul><li>多语言资源文件过大</li> <li>全球用户访问速度不一</li></ul> <p><strong>针对性优化</strong>：</p> <ul><li>&quot;在一个支持40多种语言的国际化教育平台项目中，我们发现语言包文件过大导致加载缓慢。我们将语言包按需加载，只加载当前用户选择的语言，减少了初始加载时间。&quot;</li> <li>&quot;我们还结合用户IP地理位置，自动选择最近的CDN节点，使全球各地用户都能获得较快的访问速度。&quot;</li></ul> <h2 id="总结与经验分享"><a href="#总结与经验分享" class="header-anchor">#</a> 总结与经验分享</h2> <p>通过这次优化，我总结了几点在Vue3 + Vite + Ant Design Vue项目中进行性能优化的经验：</p> <ol><li><p><strong>发挥Vite优势</strong>：充分利用Vite的按需加载和快速热更新特性。</p></li> <li><p><strong>组件库按需引入</strong>：大型UI库如Ant Design Vue必须按需引入，避免引入过多未使用的代码。</p></li> <li><p><strong>合理使用异步组件</strong>：将复杂组件设置为异步加载，特别是首屏不需要立即显示的组件。</p></li> <li><p><strong>重视图片和静态资源优化</strong>：现代图片格式和懒加载可以显著减少加载时间。</p></li> <li><p><strong>数据处理与渲染分离</strong>：使用Web Worker处理复杂计算，保持主线程畅通。</p></li> <li><p><strong>根据实际需求优化</strong>：不同项目可能需要不同的优化策略，要根据实际性能瓶颈进行针对性优化。</p></li> <li><p><strong>持续监控与优化</strong>：性能优化是持续过程，不是一次性工作。</p></li></ol> <p>这些优化不仅提升了用户体验，也减少了服务器带宽消耗，使我们的应用更加流畅和高效。希望这些经验能对其他前端开发者有所帮助！</p></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-2a01419c data-v-2a01419c><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-2a01419c><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-2a01419c></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-2a01419c></path></svg></div></div></div>
+    <script src="/assets/js/app.4a1bd1d5.js" defer></script><script src="/assets/js/3.446bfd57.js" defer></script><script src="/assets/js/2.c5b4d909.js" defer></script><script src="/assets/js/1.43e5130d.js" defer></script><script src="/assets/js/58.82360c88.js" defer></script>
+  </body>
+</html>

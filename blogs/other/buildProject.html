@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用Vue 3技术栈搭建高可维护性项目架构的实践与思考 | 坦途的博客</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/favicon.ico">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8898b78d4744983d0771303845947fa6";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+        </script>
+    <meta name="description" content="坦途,是一个关注于互联网、IT技术经验分享的个人独立博客。专注于IT行业最前沿的技术。致力成为互联网上最个性、最极客、具传播力的个人独立博客。">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.ae5b0369.css" as="style"><link rel="preload" href="/assets/js/app.4a1bd1d5.js" as="script"><link rel="preload" href="/assets/js/3.446bfd57.js" as="script"><link rel="preload" href="/assets/js/2.c5b4d909.js" as="script"><link rel="preload" href="/assets/js/1.43e5130d.js" as="script"><link rel="preload" href="/assets/js/45.d965531a.js" as="script"><link rel="prefetch" href="/assets/js/10.0a98ae81.js"><link rel="prefetch" href="/assets/js/11.3b38ce69.js"><link rel="prefetch" href="/assets/js/12.5305c3b1.js"><link rel="prefetch" href="/assets/js/15.52f34a3a.js"><link rel="prefetch" href="/assets/js/16.5d3a68e6.js"><link rel="prefetch" href="/assets/js/17.4a2edb70.js"><link rel="prefetch" href="/assets/js/18.dd5694a4.js"><link rel="prefetch" href="/assets/js/19.6ba0eabe.js"><link rel="prefetch" href="/assets/js/20.52d1f2b0.js"><link rel="prefetch" href="/assets/js/21.9b9b6eb8.js"><link rel="prefetch" href="/assets/js/22.d97bbfdc.js"><link rel="prefetch" href="/assets/js/23.8c6ad209.js"><link rel="prefetch" href="/assets/js/24.73c63493.js"><link rel="prefetch" href="/assets/js/25.63b2db3c.js"><link rel="prefetch" href="/assets/js/26.5ea874ee.js"><link rel="prefetch" href="/assets/js/27.3bf6e6c2.js"><link rel="prefetch" href="/assets/js/28.62cfca15.js"><link rel="prefetch" href="/assets/js/29.02219068.js"><link rel="prefetch" href="/assets/js/30.c7b76a6f.js"><link rel="prefetch" href="/assets/js/31.f6bef83d.js"><link rel="prefetch" href="/assets/js/32.138318d5.js"><link rel="prefetch" href="/assets/js/33.12765211.js"><link rel="prefetch" href="/assets/js/34.1203e7a7.js"><link rel="prefetch" href="/assets/js/35.7c800e54.js"><link rel="prefetch" href="/assets/js/36.35013d39.js"><link rel="prefetch" href="/assets/js/37.bc92d0fd.js"><link rel="prefetch" href="/assets/js/38.5994af21.js"><link rel="prefetch" href="/assets/js/39.35c7bb65.js"><link rel="prefetch" href="/assets/js/4.6aa79d39.js"><link rel="prefetch" href="/assets/js/40.d57a93fc.js"><link rel="prefetch" href="/assets/js/41.aeab550b.js"><link rel="prefetch" href="/assets/js/42.54286307.js"><link rel="prefetch" href="/assets/js/43.4311151a.js"><link rel="prefetch" href="/assets/js/44.ed7e992c.js"><link rel="prefetch" href="/assets/js/46.49e3069f.js"><link rel="prefetch" href="/assets/js/47.cdbc852b.js"><link rel="prefetch" href="/assets/js/48.921b222b.js"><link rel="prefetch" href="/assets/js/49.63eda39f.js"><link rel="prefetch" href="/assets/js/5.6827de94.js"><link rel="prefetch" href="/assets/js/50.e9dc3b19.js"><link rel="prefetch" href="/assets/js/51.525d5fb8.js"><link rel="prefetch" href="/assets/js/52.a0be9e03.js"><link rel="prefetch" href="/assets/js/53.3ec3c836.js"><link rel="prefetch" href="/assets/js/54.3e5f2c74.js"><link rel="prefetch" href="/assets/js/55.adfd425f.js"><link rel="prefetch" href="/assets/js/56.4a159f3f.js"><link rel="prefetch" href="/assets/js/57.8e57558a.js"><link rel="prefetch" href="/assets/js/58.82360c88.js"><link rel="prefetch" href="/assets/js/59.fa614a09.js"><link rel="prefetch" href="/assets/js/6.1943e564.js"><link rel="prefetch" href="/assets/js/60.13e7fe01.js"><link rel="prefetch" href="/assets/js/61.25541078.js"><link rel="prefetch" href="/assets/js/62.9b1ae98d.js"><link rel="prefetch" href="/assets/js/63.d2effc67.js"><link rel="prefetch" href="/assets/js/64.14c9f15a.js"><link rel="prefetch" href="/assets/js/65.1c3e3fca.js"><link rel="prefetch" href="/assets/js/7.28897ce7.js"><link rel="prefetch" href="/assets/js/8.c63de8af.js"><link rel="prefetch" href="/assets/js/9.0f4dfe22.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.4d48241b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ae5b0369.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-4b7b8974><div data-v-4b7b8974><div id="loader-wrapper" class="loading-wrapper" data-v-57c58703 data-v-4b7b8974 data-v-4b7b8974><div class="loader-main" data-v-57c58703><div data-v-57c58703></div><div data-v-57c58703></div><div data-v-57c58703></div><div data-v-57c58703></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-5cb9a64e data-v-4b7b8974 data-v-4b7b8974><h3 class="title" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e>坦途的博客</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e><input type="password" value="" data-v-5cb9a64e> <span data-v-5cb9a64e>Konck! Knock!</span> <button data-v-5cb9a64e>OK</button></label> <div class="footer" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e><span data-v-5cb9a64e><i class="iconfont reco-theme" data-v-5cb9a64e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-5cb9a64e>vuePress-theme-reco</a></span> <span data-v-5cb9a64e><i class="iconfont reco-copyright" data-v-5cb9a64e></i> <a data-v-5cb9a64e><span data-v-5cb9a64e>坦途</span>
+            
+          <span data-v-5cb9a64e>2020 - </span>
+          2025
+        </a></span></div></div> <div class="hide" data-v-4b7b8974><div data-v-4b7b8974><div id="smart" class="wrapper-page" style="background-image:url(https://img.picgo.net/2025/03/13/59aa59ea575a6cceed1b9dc0018ee8415cac7f5a42122f0.jpg);background-position-x:center;background-position-y:center;background-size:cover;background-repeat-x:no-repeat;background-repeat-y:no-repeat;" data-v-4b7b8974><header class="navbar" data-v-4b7b8974><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/favicon.ico" alt="坦途的博客" class="logo"> <span class="site-name">坦途的博客</span></a> <div class="links"><div id="dayNightSwitch" class="generalWrapper" data-v-32f44868><a class="click" data-v-32f44868><div class="onOff daySwitch" data-v-32f44868><div class="star star1" data-v-32f44868></div> <div class="star star2" data-v-32f44868></div> <div class="star star3" data-v-32f44868></div> <div class="star star4" data-v-32f44868></div> <div class="star star5" data-v-32f44868></div> <div class="star sky" data-v-32f44868></div> <div class="sunMoon" data-v-32f44868><div class="crater crater1" data-v-32f44868></div> <div class="crater crater2" data-v-32f44868></div> <div class="crater crater3" data-v-32f44868></div> <div class="cloud part1" data-v-32f44868></div> <div class="cloud part2" data-v-32f44868></div></div></div></a></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/开发实践/" class="nav-link"><i class="iconfont undefined"></i>
+  开发实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  技术笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术实践/" class="nav-link"><i class="iconfont undefined"></i>
+  技术实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端优化/" class="nav-link"><i class="iconfont undefined"></i>
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/categories/鉴权/" class="nav-link"><i class="iconfont undefined"></i>
+  鉴权
+</a></li><li class="dropdown-item"><!----> <a href="/categories/心情物语/" class="nav-link"><i class="iconfont undefined"></i>
+  心情物语
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂谈游记/" class="nav-link"><i class="iconfont undefined"></i>
+  杂谈游记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-4b7b8974></div> <aside class="sidebar" data-v-4b7b8974><div class="personal-info-wrapper" data-v-03833281 data-v-4b7b8974><img src="https://p3-passport.byteimg.com/img/user-avatar/27381676718b5db3678b2dcb597ff883~180x180.awebp" alt="author-avatar" class="personal-img" data-v-03833281> <h3 class="name" data-v-03833281>
+    坦途
+  </h3> <div class="num" data-v-03833281><div data-v-03833281><h3 data-v-03833281>22</h3> <h6 data-v-03833281>文章</h6></div> <div data-v-03833281><h3 data-v-03833281>33</h3> <h6 data-v-03833281>标签</h6></div></div> <hr data-v-03833281></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link"><i class="iconfont reco-home"></i>
+  主页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/开发实践/" class="nav-link"><i class="iconfont undefined"></i>
+  开发实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术笔记/" class="nav-link"><i class="iconfont undefined"></i>
+  技术笔记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/技术实践/" class="nav-link"><i class="iconfont undefined"></i>
+  技术实践
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端优化/" class="nav-link"><i class="iconfont undefined"></i>
+  前端优化
+</a></li><li class="dropdown-item"><!----> <a href="/categories/鉴权/" class="nav-link"><i class="iconfont undefined"></i>
+  鉴权
+</a></li><li class="dropdown-item"><!----> <a href="/categories/心情物语/" class="nav-link"><i class="iconfont undefined"></i>
+  心情物语
+</a></li><li class="dropdown-item"><!----> <a href="/categories/杂谈游记/" class="nav-link"><i class="iconfont undefined"></i>
+  杂谈游记
+</a></li><li class="dropdown-item"><!----> <a href="/categories/前端/" class="nav-link"><i class="iconfont undefined"></i>
+  前端
+</a></li></ul></div></div><div class="nav-item"><a href="/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  标签
+</a></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div><div class="nav-item"><a href="/about/" class="nav-link"><i class="iconfont reco-account"></i>
+  关于
+</a></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-5cb9a64e data-v-4b7b8974><h3 class="title" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e>使用Vue 3技术栈搭建高可维护性项目架构的实践与思考</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e><input type="password" value="" data-v-5cb9a64e> <span data-v-5cb9a64e>Konck! Knock!</span> <button data-v-5cb9a64e>OK</button></label> <div class="footer" style="display:none;" data-v-5cb9a64e data-v-5cb9a64e><span data-v-5cb9a64e><i class="iconfont reco-theme" data-v-5cb9a64e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-5cb9a64e>vuePress-theme-reco</a></span> <span data-v-5cb9a64e><i class="iconfont reco-copyright" data-v-5cb9a64e></i> <a data-v-5cb9a64e><span data-v-5cb9a64e>坦途</span>
+            
+          <span data-v-5cb9a64e>2020 - </span>
+          2025
+        </a></span></div></div></div> <div data-v-4b7b8974><main class="page" style="padding-right:0;"><div class="page-title" style="display:none;"><h1 class="title">使用Vue 3技术栈搭建高可维护性项目架构的实践与思考</h1> <div class="page-info" data-v-0efa1f05><i class="iconfont reco-account" data-v-0efa1f05><span data-v-0efa1f05>坦途</span></i> <i class="iconfont reco-date" data-v-0efa1f05><span data-v-0efa1f05>2025-01-18</span></i> <i class="iconfont reco-eye" data-v-0efa1f05><span id="/blogs/other/buildProject.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-0efa1f05><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-0efa1f05><span class="tag-item" data-v-0efa1f05>项目搭建</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="custom-block tip"><p class="custom-block-title">摘要</p> <h2 id="项目背景与挑战"><a href="#项目背景与挑战" class="header-anchor">#</a> 项目背景与挑战</h2> <p>在负责AI安全平台前端开发期间，我面临了以下挑战：</p> <ul><li>需要处理大量复杂的数据可视化和用户交互</li> <li>多人协作开发，需要保证代码一致性和可维护性</li> <li>项目预期会持续迭代，需要支持长期扩展</li> <li>性能和用户体验是关键指标</li></ul></div> <h2 id="设计理念"><a href="#设计理念" class="header-anchor">#</a> 设计理念</h2> <p>基于这些挑战，我选择了Vue 3技术栈并围绕以下核心理念设计：</p> <ol><li><strong>模块化设计</strong>：将应用拆分为独立、可复用的模块</li> <li><strong>组件化开发</strong>：提高代码复用性和开发效率</li> <li><strong>性能优化</strong>：利用Vue 3的响应式系统和按需加载</li> <li><strong>开发体验</strong>：提供清晰的开发规范和工具支持</li></ol> <h2 id="具体实施方案"><a href="#具体实施方案" class="header-anchor">#</a> 具体实施方案</h2> <h3 id="_1-技术栈选型"><a href="#_1-技术栈选型" class="header-anchor">#</a> 1. 技术栈选型</h3> <ul><li><strong>核心框架</strong>：Vue 3 + TypeScript</li> <li><strong>状态管理</strong>：Pinia (Vue 3官方推荐的状态管理方案)</li> <li><strong>路由管理</strong>：Vue Router 4</li> <li><strong>UI组件库</strong>：Element Plus</li> <li><strong>构建工具</strong>：Vite</li> <li><strong>代码规范</strong>：ESLint + Prettier</li></ul> <h3 id="_2-项目结构设计"><a href="#_2-项目结构设计" class="header-anchor">#</a> 2. 项目结构设计</h3> <p>我设计了清晰的目录结构，使团队成员能够快速定位和理解代码：</p> <div class="language- extra-class"><pre class="language-text"><code>src/
+├── api/                # API请求封装
+├── assets/             # 静态资源
+├── components/         # 全局通用组件
+├── composables/        # 组合式函数
+├── constants/          # 常量定义
+├── directives/         # 自定义指令
+├── hooks/              # 可复用的业务逻辑钩子
+├── layouts/            # 布局组件
+├── router/             # 路由配置
+├── stores/             # Pinia状态管理
+├── styles/             # 全局样式
+├── utils/              # 工具函数
+└── views/              # 页面组件
+    └── feature/        # 按功能模块组织的页面
+        ├── components/ # 功能模块私有组件
+        └── composables/ # 功能模块私有组合式函数
+</code></pre></div><h3 id="_3-核心架构实践"><a href="#_3-核心架构实践" class="header-anchor">#</a> 3. 核心架构实践</h3> <h4 id="_3-1-组件设计模式"><a href="#_3-1-组件设计模式" class="header-anchor">#</a> 3.1 组件设计模式</h4> <p>我引入了三层组件设计模式，提高代码复用性和可维护性：</p> <ul><li><strong>基础组件</strong>：纯展示型组件，无业务逻辑</li> <li><strong>容器组件</strong>：处理数据逻辑，但不关注UI细节</li> <li><strong>页面组件</strong>：整合容器组件和基础组件，构成完整页面</li></ul> <h4 id="_3-2-状态管理优化"><a href="#_3-2-状态管理优化" class="header-anchor">#</a> 3.2 状态管理优化</h4> <p>利用Pinia的模块化特性，我们将状态按业务域进行拆分：</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token comment">// stores/modules/security.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">const</span> useSecurityStore <span class="token operator">=</span> <span class="token function">defineStore</span><span class="token punctuation">(</span><span class="token string">'security'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token function-variable function">state</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    threats<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    vulnerabilities<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    loading<span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  actions<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token keyword">async</span> <span class="token function">fetchThreats</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>loading <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> api<span class="token punctuation">.</span><span class="token function">getThreats</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>threats <span class="token operator">=</span> data<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>loading <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>为什么选择Pinia而非Vuex？正如学习资料中提到的：</p> <ol><li>Pinia是专为Vue 3设计的，完全采用Composition API</li> <li>API更加简洁，易于使用</li> <li>支持模块化Store，提高代码可维护性</li> <li>内置对Vue Devtools的支持</li> <li>类型推导更完善，与TypeScript配合更佳</li> <li>体积更小，性能更优</li></ol> <h4 id="_3-3-api请求封装"><a href="#_3-3-api请求封装" class="header-anchor">#</a> 3.3 API请求封装</h4> <p>创建了统一的API层，处理请求、响应拦截和错误处理：</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token comment">// api/request.ts</span>
+<span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> request <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  baseURL<span class="token operator">:</span> <span class="token keyword">import</span><span class="token punctuation">.</span>meta<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">VITE_API_BASE_URL</span><span class="token punctuation">,</span>
+  timeout<span class="token operator">:</span> <span class="token number">10000</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+request<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>config <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 统一添加token等认证信息</span>
+  <span class="token keyword">return</span> config<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+request<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>
+  response <span class="token operator">=&gt;</span> response<span class="token punctuation">.</span>data<span class="token punctuation">,</span>
+  error <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 统一错误处理</span>
+    <span class="token keyword">return</span> <span class="token builtin">Promise</span><span class="token punctuation">.</span><span class="token function">reject</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> request<span class="token punctuation">;</span>
+</code></pre></div><h4 id="_3-4-组合式api的应用"><a href="#_3-4-组合式api的应用" class="header-anchor">#</a> 3.4 组合式API的应用</h4> <p>Vue 3的组合式API (Composition API)是它相比Vue 2的一大优势。根据学习资料，组合式API可以让我们按照逻辑关系组织代码，而不是像Vue 2那样按照options选项分散相关逻辑。</p> <p>我充分利用这一特性，将相关逻辑提取为可复用的模块：</p> <div class="language-typescript extra-class"><pre class="language-typescript"><code><span class="token comment">// composables/useDataFetching.ts</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">useDataFetching</span><span class="token punctuation">(</span>fetchFunction<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> loading <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> error <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    loading<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    error<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      data<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetchFunction</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      error<span class="token punctuation">.</span>value <span class="token operator">=</span> err<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+      loading<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">{</span> data<span class="token punctuation">,</span> loading<span class="token punctuation">,</span> error<span class="token punctuation">,</span> fetchData <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_4-工程化实践"><a href="#_4-工程化实践" class="header-anchor">#</a> 4. 工程化实践</h3> <h4 id="_4-1-构建优化"><a href="#_4-1-构建优化" class="header-anchor">#</a> 4.1 构建优化</h4> <p>通过Vite实现了：</p> <ul><li>按需加载组件和路由</li> <li>资源压缩和CDN配置</li> <li>自动分包和懒加载</li></ul> <h4 id="_4-2-代码规范自动化"><a href="#_4-2-代码规范自动化" class="header-anchor">#</a> 4.2 代码规范自动化</h4> <p>集成ESLint和Prettier，并配置Git hooks自动检查：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// .eslintrc.js</span>
+module.exports = <span class="token punctuation">{</span>
+  <span class="token property">&quot;extends&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;plugin:vue/vue3-recommended&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;eslint:recommended&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;@vue/typescript/recommended&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;@vue/prettier&quot;</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;rules&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 自定义规则</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="成果与价值"><a href="#成果与价值" class="header-anchor">#</a> 成果与价值</h2> <p>通过以上架构设计和实践，我们取得了显著成果：</p> <ol><li><strong>开发效率提升</strong>：封装15+高复用业务组件，使团队开发效率提升40%</li> <li><strong>性能优化</strong>：核心页面加载时间减少50%，显著提升用户体验</li> <li><strong>可维护性增强</strong>：
+<ul><li>清晰的代码组织和文档</li> <li>新团队成员平均1周即可熟悉项目并参与开发</li></ul></li></ol> <h2 id="经验总结"><a href="#经验总结" class="header-anchor">#</a> 经验总结</h2> <p>在Vue 3项目架构设计中，我总结了以下关键点：</p> <ol><li><p><strong>充分利用Vue 3的新特性</strong>：从学习资料中我们可以看到，Vue 3相比Vue 2有诸多优势：</p> <ul><li>更完善的响应式系统（使用Proxy代替Object.defineProperty）</li> <li>组合式API提供更高的灵活性和可复用性</li> <li>生命周期钩子更加清晰</li></ul></li> <li><p><strong>组件设计要分层</strong>：清晰的组件分层设计降低了耦合度，提高了代码复用性</p></li> <li><p><strong>状态管理要精简</strong>：使用Pinia按业务模块组织状态，避免全局状态过度膨胀</p></li> <li><p><strong>工程化要到位</strong>：自动化构建、代码规范、目录结构设计是项目质量的基础</p></li></ol> <p>通过这套架构，我们不仅满足了当前项目需求，也为团队未来的技术发展奠定了良好基础。随着项目的不断迭代，我们也在持续优化架构，使其更加健壮和高效。</p></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----> <!----></main> <!----></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-2a01419c data-v-2a01419c><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-2a01419c><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-2a01419c></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-2a01419c></path></svg></div></div></div>
+    <script src="/assets/js/app.4a1bd1d5.js" defer></script><script src="/assets/js/3.446bfd57.js" defer></script><script src="/assets/js/2.c5b4d909.js" defer></script><script src="/assets/js/1.43e5130d.js" defer></script><script src="/assets/js/45.d965531a.js" defer></script>
+  </body>
+</html>
